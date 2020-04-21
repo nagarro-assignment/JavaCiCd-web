@@ -11,6 +11,7 @@ pipeline {
       steps {
         withSonarQubeEnv('Default') {
           bat(script: 'mvn compile package', label: 'package')
+          bat 'mvn sonar:sonar'
         }
 
       }
