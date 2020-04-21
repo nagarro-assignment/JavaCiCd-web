@@ -14,6 +14,7 @@ pipeline {
           bat 'mvn sonar:sonar'
         }
 
+        waitForQualityGate true
       }
     }
 
