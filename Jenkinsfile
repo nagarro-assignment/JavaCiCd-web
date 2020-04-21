@@ -14,6 +14,11 @@ pipeline {
           bat 'mvn sonar:sonar'
         }
 
+      }
+    }
+
+    stage('quality gate') {
+      steps {
         waitForQualityGate true
       }
     }
