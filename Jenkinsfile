@@ -6,13 +6,18 @@ pipeline {
         bat 'mvn compile'
       }
     }
+    
+    stage('unit test') {
+      steps {
+        bat 'mvn test'
+      }
+    }
 
     stage('sonar analysis') {
       steps {
         withSonarQubeEnv('Default') {
           bat(script: 'mvn sonar:sonar', label: 'upload analysis to sonar')
         }
-
       }
     }
 
