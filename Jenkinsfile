@@ -10,10 +10,15 @@ pipeline {
     stage('sonar analysis') {
       steps {
         withSonarQubeEnv('Default') {
-          bat(script: 'mvn compile package', label: 'package')
-          bat 'mvn sonar:sonar'
+          bat(script: 'mvn sonar:sonar', label: 'upload analysis to sonar')
         }
 
+      }
+    }
+
+    stage('sonar gate check') {
+      steps {
+        waitForQualityGate true
       }
     }
 
