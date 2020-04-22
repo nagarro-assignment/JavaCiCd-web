@@ -64,4 +64,12 @@
 		</plugins>
 	</build>
 
+	<distributionManagement>
+		<snapshotRepository>
+			<id>snapshots</id>
+			<name>ankurnigam-snapshots</name>
+			<url>http://localhost:8082/artifactory/JavaCiCd</url>
+		</snapshotRepository>
+	</distributionManagement>
+
 </project>

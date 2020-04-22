@@ -21,6 +21,11 @@ pipeline {
         waitForQualityGate true
       }
     }
-
+    
+    stage('push to artifactory') {
+      steps {
+        bat(script: 'mvn deploy')
+      }
+    }
   }
 }
